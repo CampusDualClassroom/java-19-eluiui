@@ -104,7 +104,7 @@ public class Exercise19 {
 
     public static void main(String[] args) {
         int[] uniArray = createAndPopulateUnidimensionalArray(5);
-        System.out.println("Array unidimensional:\n" + getUnidimensionalString(uniArray));
+        System.out.println("Unidimensional:\n" + getUnidimensionalString(uniArray));
         System.out.println("===================");
 
         int[][] intArrayBi = createAndPopulateBidimensionalArray(3, 3);
