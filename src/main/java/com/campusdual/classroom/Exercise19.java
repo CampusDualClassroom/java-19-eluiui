@@ -7,7 +7,7 @@ public class Exercise19 {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < rows; i++) {
             sb.append(stringFlatMatrixRow(flatMatrix, i));
-            sb.append("   ");
+            sb.append("   →   ");
             sb.append(stringTriMatrixRow(intArrayTri, i));
             sb.append("\n");
         }
@@ -37,12 +37,12 @@ public class Exercise19 {
 
     public static int[][] flatTridimensionalArray(int[][][] intArrayTri) {
         int rows = intArrayTri[0].length;
-        int columns = intArrayTri[0][0].length;
-        int[][] flatArray = new int[rows][columns];
+        int cols = intArrayTri[0][0].length;
+        int[][] flatArray = new int[rows][cols];
 
         for (int i = 0; i < intArrayTri.length; i++) {
             for (int j = 0; j < rows; j++) {
-                for (int k = 0; k < columns; k++) {
+                for (int k = 0; k < cols; k++) {
                     flatArray[j][k] = intArrayTri[i][j][k]+flatArray[j][k];
                 }
             }
@@ -72,42 +72,44 @@ public class Exercise19 {
     }
 
     public static int[] createAndPopulateUnidimensionalArray(int columns) {
-        int[] array = new int[columns];
+        int[] unidimensional = new int[columns];
         for (int i = 0; i < columns; i++) {
-            array[i] = i + 1;
+            unidimensional[i] = i + 1;
         }
-        return array;
+        return unidimensional;
     }
 
     public static int[][] createAndPopulateBidimensionalArray(int rows, int columns) {
-        int[][] doble = new int[rows][columns];
+        int[][] bidimensinal = new int[rows][columns];
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                doble[i][j] = i * columns + j + 1;
+                bidimensinal[i][j] = i * columns + j + 1;
             }
         }
-        return doble;
+        return bidimensinal;
     }
 
     public static int[][][] createAndPopulateTridimensionalArray(int depth, int rows, int columns) {
-        int[][][] triple = new int[depth][rows][columns];
+        int[][][] tridimensional = new int[depth][rows][columns];
         int counter = 1;
         for (int i = 0; i < depth; i++) {
             for (int j = 0; j < rows; j++) {
                 for (int k = 0; k < columns; k++) {
-                    triple[i][j][k] = counter++;
+                    tridimensional[i][j][k] = counter++;
                 }
             }
         }
-        return triple;
+        return tridimensional;
     }
 
     public static void main(String[] args) {
         int[] uniArray = createAndPopulateUnidimensionalArray(5);
-        System.out.println("Unidimensional:\n" + getUnidimensionalString(uniArray));
+        System.out.println("Array unidimensional:\n" + getUnidimensionalString(uniArray));
+        System.out.println("===================");
 
         int[][] intArrayBi = createAndPopulateBidimensionalArray(3, 3);
         System.out.println("Bidimensional:\n" + getBidimensionalString(intArrayBi));
+        System.out.println("===================");
 
         int[][][] intArrayTri = createAndPopulateTridimensionalArray(3, 3, 3);
         System.out.println("Tridimensional:\n" + getTridimensionalString(intArrayTri));
